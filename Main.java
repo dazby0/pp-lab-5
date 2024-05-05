@@ -2,6 +2,7 @@ import company.beans.Person;
 import company.exceptions.InvalidAgeException;
 import company.implementations.EmailMessenger;
 import company.interfaces.Messenger;
+import company.utils.MathUtils;
 
 public class Main {
 
@@ -14,7 +15,13 @@ public class Main {
             System.err.println("Error: " + e.getMessage());
         }
 
+        int a = 15;
+        int b = 48;
+
+        int sum = MathUtils.add(a, b);
+        System.out.println("Sum: " + sum);
+
         Messenger messenger = new EmailMessenger();
-        messenger.sendMessage("Sample message");
+        messenger.sendMessage("\nSum of " + a + " and " + b + " is equal to: " + sum);
     }
 }
