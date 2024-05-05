@@ -7,21 +7,25 @@ import company.utils.MathUtils;
 public class Main {
 
     public static void main(String[] args) {
+
         try {
-            Person person = new Person("Aurora Bennett", 30);
-            System.out.println("Name: " + person.getName());
-            System.out.println("Age: " + person.getAge());
+            Person[] people = new Person[5];
+            int b = 10;
+
+            people[0] = new Person("Lily Johnson", 30);
+            people[1] = new Person("Max Thompson", 25);
+            people[2] = new Person("Emily Davis", 40);
+            people[3] = new Person("Oliver Clark", 35);
+            people[4] = new Person("Sophia Roberts", 22);
+
+            Messenger messenger = new EmailMessenger();
+
+            for (Person person : people) {
+                int sum = MathUtils.add(person.getAge(), b);
+                messenger.sendMessage("\nThe sum of age " + person.getName() + " and " + b + " is equal to: " + sum);
+            }
         } catch (InvalidAgeException e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Błąd: " + e.getMessage());
         }
-
-        int a = 15;
-        int b = 48;
-
-        int sum = MathUtils.add(a, b);
-        System.out.println("Sum: " + sum);
-
-        Messenger messenger = new EmailMessenger();
-        messenger.sendMessage("\nSum of " + a + " and " + b + " is equal to: " + sum);
     }
 }
