@@ -10,11 +10,12 @@ public class Main {
             Person person = new Person("Aurora Bennett", 30);
             System.out.println("Name: " + person.getName());
             System.out.println("Age: " + person.getAge());
+            
+            Messenger messenger = new EmailMessenger();
+            messenger.sendMessage("\nSample message");
         } catch (InvalidAgeException e) {
             System.err.println("Error: " + e.getMessage());
         }
 
-        Messenger messenger = new EmailMessenger();
-        messenger.sendMessage("Sample message");
     }
 }
